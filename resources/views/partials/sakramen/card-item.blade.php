@@ -1,0 +1,37 @@
+<div class="relative w-full max-w-[200px] md:max-w-[300px] aspect-square group rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-white shadow-sm border border-gray-100 transition-all duration-500 hover:shadow-xl" 
+     onclick="this.classList.toggle('is-touched')">
+    <div class="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center p-4 md:p-6 transition-transform duration-500 group-hover:-translate-y-4 group-[.is-touched]:-translate-y-4">
+        <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[#FEF2F2] flex items-center justify-center mb-4 md:mb-6 group-hover:scale-90 group-[.is-touched]:scale-90 transition-transform duration-500">
+            @php
+                $icon = $item->icon_sakramen
+                    ? asset('storage/'.$item->icon_sakramen)
+                    : asset('/assets/doc.png');
+            @endphp
+            <img src="{{ $icon }}" class="w-6 h-6 md:w-8 md:h-8 object-contain" alt="{{ $item->judul_sakramen }}">
+        </div>
+        <h3 class="text-center text-xs md:text-base font-semibold text-[#3b0d0d] mb-2 md:mb-3 px-2 leading-tight">
+            {{ $item->judul_sakramen }}
+        </h3>
+
+        <p class="text-center text-[10px] md:text-sm text-[#3b0d0d] opacity-70 leading-relaxed font-light px-1 mb-4 line-clamp-3">
+            {{ $item->deskripsi_singkat }}
+        </p>
+    </div>
+    <div class="absolute inset-x-0 bottom-0 h-full bg-[#3E0703] text-white p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-[.is-touched]:translate-y-0 group-[.is-touched]:opacity-100">
+        
+        <div class="mb-4 md:mb-5">
+            <p class="text-[10px] md:text-sm font-medium italic leading-relaxed fs-style-manrope mb-2 md:mb-3 line-clamp-4">
+                "{{ $item->kutipan_ayat ?? 'Nescimus quotation' }}"
+            </p>
+            <p class="text-[9px] md:text-[11px] opacity-60 font-light">
+                {{ $item->sumber_ayat ?? '-' }}
+            </p>
+        </div>
+
+        <a href="{{ route('landing.sakramen.detail', $item->id) }}" class="text-[10px] md:text-sm font-semibold border-b border-white/30 hover:border-white transition-all pb-0.5 z-10 relative">
+            Lanjutkan Membaca
+        </a>
+    </div>
+
+</div>
+

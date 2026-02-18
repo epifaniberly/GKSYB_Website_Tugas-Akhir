@@ -1,0 +1,119 @@
+.hb-radio {
+    display: none;
+}
+
+.hb-carousel-container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+}
+
+.hb-cards {
+    position: relative;
+    height: 400px;
+}
+
+.hb-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform .4s ease;
+    cursor: pointer;
+}
+
+.hb-img {
+    width: 800px;
+    height: 400px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+
+
+#hb-item-1:checked~.hb-cards #hb-slide-5,
+#hb-item-2:checked~.hb-cards #hb-slide-1,
+#hb-item-3:checked~.hb-cards #hb-slide-2,
+#hb-item-4:checked~.hb-cards #hb-slide-3,
+#hb-item-5:checked~.hb-cards #hb-slide-4 {
+    transform: translateX(-40%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+}
+
+
+#hb-item-1:checked~.hb-cards #hb-slide-2,
+#hb-item-2:checked~.hb-cards #hb-slide-3,
+#hb-item-3:checked~.hb-cards #hb-slide-4,
+#hb-item-4:checked~.hb-cards #hb-slide-5,
+#hb-item-5:checked~.hb-cards #hb-slide-1 {
+    transform: translateX(40%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+}
+
+
+#hb-item-1:checked~.hb-cards #hb-slide-1,
+#hb-item-2:checked~.hb-cards #hb-slide-2,
+#hb-item-3:checked~.hb-cards #hb-slide-3,
+#hb-item-4:checked~.hb-cards #hb-slide-4,
+#hb-item-5:checked~.hb-cards #hb-slide-5 {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+}
+
+
+.hb-bottom-nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* DOTS */
+.hb-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.hb-dot {
+    width: 12px;
+    height: 12px;
+    background: #c4c4c4;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#hb-item-1:checked~.hb-bottom-nav .hb-dots label:nth-child(1),
+#hb-item-2:checked~.hb-bottom-nav .hb-dots label:nth-child(2),
+#hb-item-3:checked~.hb-bottom-nav .hb-dots label:nth-child(3),
+#hb-item-4:checked~.hb-bottom-nav .hb-dots label:nth-child(4),
+#hb-item-5:checked~.hb-bottom-nav .hb-dots label:nth-child(5) {
+    background: #333;
+}
+
+
+.hb-arrow {
+    background-color: #FCFAF7;
+    border: none;
+    font-size: 22px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.hb-arrow:hover {
+    background: white;
+}
+
+@media (max-width: 640px) {
+    .hb-cards {
+        height: 280px;
+    }
+}
